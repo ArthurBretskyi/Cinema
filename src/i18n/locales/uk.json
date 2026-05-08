@@ -1,0 +1,21 @@
+{
+  "pages": {},
+  "components": {
+    "AppHeader": {
+      "NowInCinemas": "Зараз у кіно",
+      "SoonInCinemas": "Скоро у прокаті",
+      "Snacks": "Снеки",
+      "Cinemas": "Кінотеатри"
+    },
+    "BurgerComponent": {
+      "OpenMenu": "Відкрити Меню"
+    },
+    "LocationSelector": {
+      "ChooseCity": "Оберіть місто"
+    },
+    "UserAuth": {
+      "Register": "Зареєструватись",
+      "LogIn": "Увійти"
+    }
+  }
+}

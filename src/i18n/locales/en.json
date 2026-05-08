@@ -1,0 +1,21 @@
+{
+  "pages": {},
+  "components": {
+    "AppHeader": {
+      "NowInCinemas": "Now In Cinemas",
+      "SoonInCinemas": "Soon In Cinemas",
+      "Snacks": "Snacks",
+      "Cinemas": "Map View"
+    },
+    "BurgerComponent": {
+      "OpenMenu": "Open Menu"
+    },
+    "LocationSelector": {
+      "ChooseCity": "Choose City"
+    },
+    "UserAuth": {
+      "Register": "Register",
+      "LogIn": "LogIn"
+    }
+  }
+}
