@@ -1,5 +1,28 @@
 {
-  "pages": {},
+  "pages": {
+    "Register": {
+      "Title": "Створіть обліковий запис",
+      "AlreadyHaveAccount": "Вже маєте акаунт?",
+      "FirstName": "Ім'я",
+      "LastName": "Прізвище",
+      "Email": "Email",
+      "Password": "Пароль",
+      "ConfirmPassword": "Підтвердьте пароль",
+      "Divider": "або",
+      "Google": "Продовжити з Google",
+      "Error": "Щось пішло не так",
+      "RegisterBtn": "Зареєструватись"
+    },
+    "Login": {
+      "Title": "Увійти в систему",
+      "NoAccount": "Ще немає облікового запису?",
+      "Email": "Email",
+      "Password": "Пароль",
+      "Google": "Продовжити з Google",
+      "Or": "або",
+      "LogInBtn": "Увійти"
+    }
+  },
   "components": {
     "AppHeader": {
       "NowInCinemas": "Зараз у кіно",
@@ -16,6 +39,10 @@
     "UserAuth": {
       "Register": "Зареєструватись",
       "LogIn": "Увійти"
+    },
+    "UserDropDown": {
+      "Profile": "Прфіль",
+      "LogOut": "Вийти"
     }
   }
 }

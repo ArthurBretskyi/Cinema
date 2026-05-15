@@ -1,11 +1,34 @@
 {
-  "pages": {},
+  "pages": {
+    "Register": {
+      "Title": "Create an account",
+      "AlreadyHaveAccount": "Already Have Account?",
+      "FirstName": "First Name",
+      "LastName": "Last Name",
+      "Email": "Email",
+      "Password": "Password",
+      "ConfirmPassword": "Confirm Password",
+      "Divider": "or",
+      "Google": "Continue with Google",
+      "Error": "Something Went Wrong",
+      "RegisterBtn": "Register"
+    },
+    "Login": {
+      "Title": "Login to the system",
+      "NoAccount": "Don't have an account yet?",
+      "Email": "Email",
+      "Password": "Password",
+      "Google": "Continue with Google",
+      "Or": "or",
+      "LogInBtn": "LogIn"
+    }
+  },
   "components": {
     "AppHeader": {
       "NowInCinemas": "Now In Cinemas",
       "SoonInCinemas": "Soon In Cinemas",
       "Snacks": "Snacks",
-      "Cinemas": "Map View"
+      "Cinemas": "Cinemas"
     },
     "BurgerComponent": {
       "OpenMenu": "Open Menu"
@@ -16,6 +39,10 @@
     "UserAuth": {
       "Register": "Register",
       "LogIn": "LogIn"
+    },
+    "UserDropDown": {
+      "Profile": "Profile",
+      "LogOut": "Log Out"
     }
   }
 }

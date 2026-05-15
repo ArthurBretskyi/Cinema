@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
+  { path: '/', name: 'Home', component: () => import('@/views/HomeView.vue') },
   { path: '/map', name: 'MapView', component: () => import('@/views/MapView.vue') },
   {
     path: '/now-in-cinemas',

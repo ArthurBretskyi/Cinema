@@ -3,7 +3,7 @@
         <div class="header__container">
             <div class="header__left">
                 <BurgerComponent @toggle-menu='isMenuOpen = !isMenuOpen' />
-                <!-- NavigationMenu -->
+                <NavigationMenu :isOpen="isMenuOpen" @close="isMenuOpen = false" />
             </div>
             <div class="header__center">
                 <nav class="header__menu menu">
@@ -23,8 +23,8 @@
             </div>
             <div class="header__right">
                 <LocationSelectorComponent />
-                <UserAuthComponent />
-                <!-- UserDropDownComponent -->
+                <UserAuthComponent v-if="!user" />
+                <UserDropDownComponent v-else />
             </div>
         </div>
     </div>
@@ -32,9 +32,15 @@
 
 <script setup>
 import BurgerComponent from '@/components/Header/BurgerComponent.vue'
-import LocationSelectorComponent from './LocationSelectorComponent.vue';
-import UserAuthComponent from './UserAuthComponent.vue';
-import { ref } from 'vue'
+import NavigationMenu from '@/components/Header/NavigationMenu.vue';
+import LocationSelectorComponent from '@/components/Header/LocationSelectorComponent.vue';
+import UserAuthComponent from '@/components/Header/UserAuthComponent.vue';
+import UserDropDownComponent from '@/components/Header/UserDropDownComponent.vue'
+import { ref, computed } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+
+const authStore = useAuthStore()
+const user = computed(() => authStore.getUser())
 
 const isMenuOpen = ref(false)
 </script>

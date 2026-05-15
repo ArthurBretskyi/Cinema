@@ -12,21 +12,19 @@
         </div>
 
         <div v-else>
-            <!-- <UserDropDownComponent /> -->
+            <UserDropDownComponent />
         </div>
     </div>
 </template>
 
 <script setup>
-// import { computed } from 'vue'
-// import { useAuthStore } from '@/stores/auth'
-// import { useLocales } from '@/i18n/useLocales'
-// import UserDropDownComponent from '@/components/header/UserDropDownComponent.vue'
+import { computed } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import UserDropDownComponent from '@/components/Header/UserDropDownComponent.vue'
 
-// const authStore = useAuthStore()
-// const user = computed(() => authStore.getUser())
+const authStore = useAuthStore()
+const user = computed(() => authStore.getUser())
 
-// const { t } = useLocales()
 </script>
 
 <style lang="scss" scoped>

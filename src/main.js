@@ -18,8 +18,13 @@ import router from './router'
 const app = createApp(App)
 
 app.use(createPinia())
-app.use(router)
 app.use(i18n)
 app.component('font-awesome-icon', FontAwesomeIcon)
 
-app.mount('#app')
+import { useAuthStore } from '@/stores/auth'
+const authStore = useAuthStore()
+
+authStore.initAuth().then(() => {
+  app.use(router)
+  app.mount('#app')
+})
