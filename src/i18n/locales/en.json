@@ -43,6 +43,9 @@
     "UserDropDown": {
       "Profile": "Profile",
       "LogOut": "Log Out"
+    },
+    "CityCinemaOverlay": {
+      "Cities": "Cities"
     }
   }
 }

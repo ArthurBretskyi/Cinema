@@ -22,7 +22,7 @@
                 </nav>
             </div>
             <div class="header__right">
-                <LocationSelectorComponent />
+                <LocationSelectorComponent @update:location="selectedLocation = $event" />
                 <UserAuthComponent v-if="!user" />
                 <UserDropDownComponent v-else />
             </div>
@@ -43,6 +43,7 @@ const authStore = useAuthStore()
 const user = computed(() => authStore.getUser())
 
 const isMenuOpen = ref(false)
+const selectedLocation = ref(null)
 </script>
 
 <style lang="scss" scoped>

@@ -43,6 +43,9 @@
     "UserDropDown": {
       "Profile": "Прфіль",
       "LogOut": "Вийти"
+    },
+    "CityCinemaOverlay": {
+      "Cities": "Міста"
     }
   }
 }
