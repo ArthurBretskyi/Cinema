@@ -1,10 +1,10 @@
 <template>
-    <div v-if="isOpen" class="city-cinema-overlay">
+    <div class="city-cinema-overlay">
         <!-- 🖤 Backdrop -->
         <div class="city-cinema-overlay__backdrop" @click="close" />
 
         <transition name="panel-slide" appear>
-            <div class="city-cinema-overlay__panel" v-if="isOpen" ref="panel">
+            <div class="city-cinema-overlay__panel" ref="panel">
                 <button class="close-btn" @click="close" aria-label="close">✕</button>
 
                 <div class="city-cinema__content">
@@ -57,7 +57,6 @@ import { useGeneralStore } from '@/stores/general'
 import LoadingComponent from '@/components/LoadingComponent.vue'
 import ErrorComponent from '@/components/ErrorComponent.vue'
 
-const props = defineProps({ isOpen: Boolean })
 const emit = defineEmits(['close'])
 
 const citiesStore = useCitiesStore()

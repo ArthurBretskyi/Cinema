@@ -21,6 +21,11 @@
       "Google": "Продовжити з Google",
       "Or": "або",
       "LogInBtn": "Увійти"
+    },
+    "Admin": {
+      "Title": "Адміністрація",
+      "ImportCollection": "Дадати Колекцію",
+      "Collections": "Колекції"
     }
   },
   "components": {
@@ -34,7 +39,8 @@
       "OpenMenu": "Відкрити Меню"
     },
     "LocationSelector": {
-      "ChooseCity": "Оберіть місто"
+      "ChooseCity": "Оберіть місто",
+      "ChangeCity": "Змінити місто"
     },
     "UserAuth": {
       "Register": "Зареєструватись",
@@ -42,10 +48,19 @@
     },
     "UserDropDown": {
       "Profile": "Прфіль",
+      "AdminPanel": "Адмін панель",
       "LogOut": "Вийти"
     },
     "CityCinemaOverlay": {
       "Cities": "Міста"
+    },
+    "AdminCollectionSelect": {
+      "Title": "Оберіть Колекцію",
+      "Placeholder": "Колекції"
+    },
+    "AdminImportPanel": {
+      "DocumentNameLabel": "Назва документу",
+      "Placeholder": "Введіть назву документа"
     }
   }
 }

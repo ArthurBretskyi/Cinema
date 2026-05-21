@@ -1,0 +1,17 @@
+{
+  "Kyiv": [
+    { "name": "Lavina IMAX Laser", "address": "ul. Berkovetskaya, 6D" },
+    { "name": "Respublika Park IMAX", "address": "Kol'tsevaya doroga, 1" },
+    { "name": "Prospekt", "address": "vul. Hnata Khotkevycha, 1V" },
+    { "name": "Atmosfera", "address": "Stolychne shose, 103" }
+  ],
+  "Dnipro": [
+    { "name": "Karavan", "address": "ul. Nizhnedneprovskaya, 17" },
+    { "name": "Dafi IMAX", "address": "bul. Zvezdny, 1A" }
+  ],
+  "Lviv": [
+    { "name": "Victoria Gardens", "address": "ul. Kul'parkovska, 226 A" },
+    { "name": "Spartak", "address": "ul. Het'mana Mazepy, 1B" }
+  ],
+  "Chernihiv": [{ "name": "Hollywood", "address": "Levka Lukyanenko Avenue, 74" }]
+}

@@ -1,0 +1,37 @@
+{
+  "movies": {
+    "label": "Movies",
+    "icon": "🎬",
+    "description": "Film database used for movie listings and sessions"
+  },
+  "cinemas": {
+    "label": "Cinemas",
+    "icon": "🏛️",
+    "description": "List of cinema locations by city"
+  },
+  "halls": {
+    "label": "Halls",
+    "icon": "🪑",
+    "description": "Information about cinema halls and seat layouts"
+  },
+  "snacks": {
+    "label": "Snacks",
+    "icon": "🍿",
+    "description": "Snack and drink items available for purchase"
+  },
+  "cities": {
+    "label": "Cities",
+    "icon": "🌆",
+    "description": "Cities where our cinemas operate"
+  },
+  "users": {
+    "label": "Users",
+    "icon": "👤",
+    "description": "Registered users of the app"
+  },
+  "meta": {
+    "label": "Meta",
+    "icon": "⚙️",
+    "description": "Internal configuration data (system-level)"
+  }
+}

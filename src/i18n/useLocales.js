@@ -10,7 +10,7 @@ export function useLocales() {
   function checkLocale() {
     const lastLocale = localStorage.getItem('lastLocale')
     if (lastLocale && lastLocale !== locale.value) {
-      setLocale(localStorage.getItem('lastLocale'))
+      setLocale(lastLocale)
     }
   }
 

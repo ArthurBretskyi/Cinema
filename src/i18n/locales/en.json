@@ -21,6 +21,11 @@
       "Google": "Continue with Google",
       "Or": "or",
       "LogInBtn": "LogIn"
+    },
+    "Admin": {
+      "Title": "Administration",
+      "ImportCollection": "ImportCollection",
+      "Collections": "Collections"
     }
   },
   "components": {
@@ -34,7 +39,8 @@
       "OpenMenu": "Open Menu"
     },
     "LocationSelector": {
-      "ChooseCity": "Choose City"
+      "ChooseCity": "Choose City",
+      "ChangeCity": "Change City"
     },
     "UserAuth": {
       "Register": "Register",
@@ -42,10 +48,19 @@
     },
     "UserDropDown": {
       "Profile": "Profile",
+      "AdminPanel": "Admin panel",
       "LogOut": "Log Out"
     },
     "CityCinemaOverlay": {
       "Cities": "Cities"
+    },
+    "AdminCollectionSelect": {
+      "Title": "Select Collection",
+      "Placeholder": "Collections"
+    },
+    "AdminImportPanel": {
+      "DocumentNameLabel": "Document's Name",
+      "Placeholder": "Enter document's name"
     }
   }
 }

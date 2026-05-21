@@ -1,0 +1,24 @@
+{
+  "type": "drink",
+  "category": "beer",
+  "style": "stout",
+  "name": {
+    "ua": "Стаут Ока Саурона",
+    "en": "Eye of Sauron Stout"
+  },
+  "description": {
+    "short": {
+      "ua": "Густий і могутній стаут.",
+      "en": "A deep and powerful stout."
+    },
+    "full": {
+      "ua": "Чорний як Мордор стаут із нотами кави та гіркого шоколаду.",
+      "en": "A pitch-black stout with coffee and dark chocolate notes."
+    }
+  },
+  "specs": { "abv": 8.5, "volumeMl": 400 },
+  "price": 150,
+  "badges": ["stout", "strong", "dark-lord"],
+  "image": { "main": "snacks/sauron-stout.png" },
+  "available": true
+}

@@ -9,7 +9,10 @@ export const useCitiesStore = defineStore('cities', () => {
   const base = getStoreTemplate('meta', generalApiOperation)
 
   const cities = ref({})
-  const selectedCity = ref(null)
+
+  const LS_KEY = 'selectedCity'
+
+  const selectedCity = ref(localStorage.getItem(LS_KEY) || null)
 
   const cinemasList = computed(() => {
     return selectedCity.value && cities.value[selectedCity.value]
@@ -31,6 +34,8 @@ export const useCitiesStore = defineStore('cities', () => {
 
   function selectCity(city) {
     selectedCity.value = city
+    if (city) localStorage.setItem(LS_KEY, city)
+    else localStorage.removeItem(LS_KEY)
   }
 
   return {

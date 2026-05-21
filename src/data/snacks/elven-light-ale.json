@@ -1,0 +1,24 @@
+{
+  "type": "drink",
+  "category": "beer",
+  "style": "light",
+  "name": {
+    "ua": "Ельфійський світлий ель",
+    "en": "Elven Light Ale"
+  },
+  "description": {
+    "short": {
+      "ua": "Світлий, чистий ель із ельфійських лісів.",
+      "en": "A bright and refined ale from the elven woods."
+    },
+    "full": {
+      "ua": "Легкий та прозорий світлий ель, зварений у гармонії з природою. Ніжні квіткові ноти та чистий післясмак.",
+      "en": "A refined light ale brewed in harmony with nature, floral notes and a clean finish."
+    }
+  },
+  "specs": { "abv": 4.2, "volumeMl": 500 },
+  "price": 125,
+  "badges": ["light", "elven", "fresh"],
+  "image": { "main": "snacks/elven-light-ale.png" },
+  "available": true
+}

@@ -1,0 +1,23 @@
+{
+  "type": "food",
+  "category": "snack",
+  "name": {
+    "ua": "Ельфійські хлібці ранкової роси",
+    "en": "Lembas of Morning Dew"
+  },
+  "description": {
+    "short": {
+      "ua": "Легка та поживна ельфійська випічка.",
+      "en": "Light and nourishing elven bread."
+    },
+    "full": {
+      "ua": "Тонкі ельфійські хлібці з травʼяним ароматом і свіжістю ранкової роси.",
+      "en": "Delicate elven bread with herbal notes and freshness."
+    }
+  },
+  "specs": { "weightG": 80 },
+  "price": 85,
+  "badges": ["elven", "light", "lembas"],
+  "image": { "main": "snacks/lembas-morning-dew.png" },
+  "available": true
+}

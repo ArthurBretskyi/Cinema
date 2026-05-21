@@ -1,18 +1,20 @@
 <template>
     <div ref="userDropdownRef" class="user-dropdown" @click.stop="toggleDropdown">
         <div class="user-main">
-            <img v-if="user.photoURL" :src="user.photoURL" alt="User avatar" class="avatar" />
+            <img v-if="user?.photoURL" :src="user?.photoURL" alt="User avatar" class="avatar" />
             <div v-else class="initials">
-                {{ getInitials(user.displayName || user.email) }}
+                {{ getInitials(user?.displayName || user?.email) }}
             </div>
         </div>
 
         <transition name="dropdown-fade">
             <div v-if="showDropdown" class="dropdown">
-                <p class="dropdown-email">{{ user.email }}</p>
+                <p class="dropdown-email">{{ user?.email }}</p>
 
-                <router-link class="dropdown-link">
-                    {{ $t('components.UserDropDown.Profile') }}
+                <router-link class="dropdown-link" :to="{ name: authStore.isAdmin ? 'Admin' : 'Profile' }">
+                    {{ authStore.isAdmin
+                        ? $t('components.UserDropDown.AdminPanel')
+                        : $t('components.UserDropDown.Profile') }}
                 </router-link>
 
                 <button @click.stop="handleLogout" class="logout-btn">
@@ -24,11 +26,12 @@
 </template>
   
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useAuthStore } from '@/stores/auth'
+import { storeToRefs } from 'pinia'
 
 const authStore = useAuthStore()
-const user = computed(() => authStore.getUser())
+const { user, isAdmin } = storeToRefs(authStore)
 
 const showDropdown = ref(false)
 const userDropdownRef = ref(null)

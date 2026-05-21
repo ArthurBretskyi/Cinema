@@ -1,0 +1,24 @@
+{
+  "type": "drink",
+  "category": "beer",
+  "style": "unfiltered",
+  "name": {
+    "ua": "Ширський нефільтрований ель",
+    "en": "Shire Unfiltered Ale"
+  },
+  "description": {
+    "short": {
+      "ua": "Мʼякий нефільтрований ель із серця Ширу.",
+      "en": "A soft unfiltered ale brewed in the heart of the Shire."
+    },
+    "full": {
+      "ua": "Нефільтроване пиво, зварене для тих, хто цінує спокій і затишок Ширу. Мʼякий ячмінь, легка гірчинка та відчуття дому.",
+      "en": "An unfiltered ale brewed for those who value the calm and comfort of the Shire."
+    }
+  },
+  "specs": { "abv": 4.5, "volumeMl": 500 },
+  "price": 120,
+  "badges": ["unfiltered", "light", "shire"],
+  "image": { "main": "snacks/shire-unfiltered-ale.png" },
+  "available": true
+}

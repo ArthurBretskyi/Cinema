@@ -1,0 +1,24 @@
+{
+  "type": "drink",
+  "category": "beer",
+  "style": "dark",
+  "name": {
+    "ua": "Темне пиво Мордорських орків",
+    "en": "Orc Dark Beer"
+  },
+  "description": {
+    "short": {
+      "ua": "Грубе, насичене темне пиво.",
+      "en": "A harsh and heavy dark beer."
+    },
+    "full": {
+      "ua": "Темне пиво з насиченим солодовим смаком та димними нотами. Варене для орків.",
+      "en": "A bold dark beer with smoky malt notes, brewed for those who fear no darkness."
+    }
+  },
+  "specs": { "abv": 6.2, "volumeMl": 500 },
+  "price": 135,
+  "badges": ["dark", "strong", "orc"],
+  "image": { "main": "snacks/orc-dark-beer.png" },
+  "available": true
+}

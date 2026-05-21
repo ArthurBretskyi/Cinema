@@ -23,15 +23,17 @@
                         <UserAuthComponent @close-menu="close" />
                     </div>
                     <div v-else class="nav-menu__user user">
-                        <img v-if="user.photoURL" :src="user.photoURL" alt="User avatar" class="user__avatar" />
+                        <img v-if="user?.photoURL" :src="user?.photoURL" alt="User avatar" class="user__avatar" />
                         <div v-else class="user__initials">
-                            {{ getInitials(user.displayName || user.email) }}
+                            {{ getInitials(user?.displayName || user?.email) }}
                         </div>
                         <div class="user__info">
-                            <p class="user__email">{{ user.email }}</p>
+                            <p class="user__email">{{ user?.email }}</p>
 
-                            <router-link class="user__link">
-                                {{ $t('components.UserDropDown.Profile') }}
+                            <router-link class="user__link" :to="{ name: authStore.isAdmin ? 'Admin' : 'Profile' }">
+                                {{ authStore.isAdmin
+                                    ? $t('components.UserDropDown.AdminPanel')
+                                    : $t('components.UserDropDown.Profile') }}
                             </router-link>
 
                             <button @click.stop="handleLogout" class="user__logout-btn">
@@ -46,12 +48,15 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import UserAuthComponent from '@/components/Header/UserAuthComponent.vue'
 import { useAuthStore } from '@/stores/auth'
+import { storeToRefs } from 'pinia'
+
 
 const authStore = useAuthStore()
-const user = computed(() => authStore.getUser())
+const { user, isAdmin } = storeToRefs(authStore)
+
 
 const props = defineProps({ isOpen: Boolean })
 const emit = defineEmits(['close'])

@@ -1,0 +1,23 @@
+{
+  "type": "food",
+  "category": "snack",
+  "name": {
+    "ua": "Копчені вуха орків",
+    "en": "Smoked Orc Ears"
+  },
+  "description": {
+    "short": {
+      "ua": "Пікантна закуска з димком.",
+      "en": "A smoky and spicy snack."
+    },
+    "full": {
+      "ua": "Солона та копчена закуска з виразним ароматом вогню.",
+      "en": "A salty, smoky snack with bold flavor."
+    }
+  },
+  "specs": { "weightG": 120 },
+  "price": 90,
+  "badges": ["smoked", "spicy"],
+  "image": { "main": "snacks/orc-smoked-ears.png" },
+  "available": true
+}

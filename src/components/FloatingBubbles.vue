@@ -152,8 +152,8 @@ onMounted(() => {
     // 🧲 Ефект магнітного поля
     const allBubbles = [...flagRefs.value]
     // const allBubbles = [...flagRefs.value, messengerRef.value, ...socialRefs.value]
-    const radius = 150 // пікселі чутливості
-    const strength = 20 // наскільки сильно відхиляється
+    const radius = 150
+    const strength = 20
 
     const handleMouseMove = (e) => {
         allBubbles.forEach((bubble) => {

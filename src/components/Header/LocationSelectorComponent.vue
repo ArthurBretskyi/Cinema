@@ -1,48 +1,37 @@
 <template>
-    <div class="location-selector" role="navigation">
+    <div class="location-selector">
         <font-awesome-icon class="location-icon" icon="fa-solid fa-location-dot" />
-        <button class="location-link" @click="toggleOverlay" :aria-label="ariaLabel" type="button">
+        <button class="location-link" @click="openOverlay" :aria-label="ariaLabel" type="button">
             {{ displayCity }}
         </button>
-        <button class="location-link" :aria-label="ariaLabel" type="button">{{ $t("components.LocationSelector.ChooseCity")
-        }}</button>
-        <CityCinemaOverlay v-if="showOverlay" :is-open="showOverlay" @close="showOverlay = false" />
+        <CityCinemaOverlay v-if="showOverlay" @close="showOverlay = false" />
     </div>
 </template>
-  
+
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useCitiesStore } from '@/stores/cities'
 import CityCinemaOverlay from '@/components/CityCinemaOverlay.vue'
 
-const LS_KEY = 'selectedCity'
 const { t } = useI18n()
 const citiesStore = useCitiesStore()
-
 const showOverlay = ref(false)
-const displayCity = computed(() => citiesStore.selectedCity || t('components.location.chooseCity'))
-const ariaLabel = computed(() => t('components.location.chooseCity'))
 
-onMounted(() => {
-    const saved = localStorage.getItem(LS_KEY)
-    if (saved) citiesStore.selectedCity = saved
-})
-
-watch(
-    () => citiesStore.selectedCity,
-    (val) => {
-        if (val) localStorage.setItem(LS_KEY, val)
-        else localStorage.removeItem(LS_KEY)
-    }
+const displayCity = computed(() =>
+    citiesStore.selectedCity || t('components.LocationSelector.ChooseCity')
 )
 
-function toggleOverlay() {
+const ariaLabel = computed(() =>
+    citiesStore.selectedCity
+        ? `${t('components.LocationSelector.ChangeCity')}: ${citiesStore.selectedCity}`
+        : t('components.LocationSelector.ChooseCity')
+)
+
+function openOverlay() {
     showOverlay.value = true
 }
 </script>
-  
-  
 
 <style scoped lang="scss">
 .location-selector {

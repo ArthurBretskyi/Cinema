@@ -1,0 +1,68 @@
+[
+  {
+    "movieId": "hobbit_an_unexpected_journey",
+    "title": "The Hobbit: An Unexpected Journey",
+    "genre": ["Fantasy", "Adventure"],
+    "description": "Bilbo Baggins is swept into a quest to reclaim the lost Dwarf Kingdom of Erebor from the fearsome dragon Smaug.",
+    "duration": 169,
+    "releaseDate": "2012-12-14",
+    "posterUrl": "https://res.cloudinary.com/demo/image/upload/v1729900001/hobbit1.jpg",
+    "trailerUrl": "https://www.youtube.com/watch?v=SDnYMbYB-nU",
+    "status": "now_playing"
+  },
+  {
+    "movieId": "hobbit_the_desolation_of_smaug",
+    "title": "The Hobbit: The Desolation of Smaug",
+    "genre": ["Fantasy", "Adventure"],
+    "description": "Bilbo and the company of Dwarves continue their journey to the Lonely Mountain to confront the dragon Smaug.",
+    "duration": 161,
+    "releaseDate": "2013-12-13",
+    "posterUrl": "https://res.cloudinary.com/demo/image/upload/v1729900002/hobbit2.jpg",
+    "trailerUrl": "https://www.youtube.com/watch?v=OPVWy1tFXuc",
+    "status": "now_playing"
+  },
+  {
+    "movieId": "hobbit_the_battle_of_the_five_armies",
+    "title": "The Hobbit: The Battle of the Five Armies",
+    "genre": ["Fantasy", "Adventure"],
+    "description": "As Smaug rains destruction on Lake-town, the races of Dwarves, Elves, and Men must unite or be destroyed.",
+    "duration": 144,
+    "releaseDate": "2014-12-17",
+    "posterUrl": "https://res.cloudinary.com/demo/image/upload/v1729900003/hobbit3.jpg",
+    "trailerUrl": "https://www.youtube.com/watch?v=iVAgTiBrrDA",
+    "status": "now_playing"
+  },
+  {
+    "movieId": "lotr_the_fellowship_of_the_ring",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "genre": ["Fantasy", "Adventure"],
+    "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring.",
+    "duration": 178,
+    "releaseDate": "2001-12-19",
+    "posterUrl": "https://res.cloudinary.com/demo/image/upload/v1729900004/lotr1.jpg",
+    "trailerUrl": "https://www.youtube.com/watch?v=aStYWD25fAQ",
+    "status": "now_playing"
+  },
+  {
+    "movieId": "lotr_the_two_towers",
+    "title": "The Lord of the Rings: The Two Towers",
+    "genre": ["Fantasy", "Adventure"],
+    "description": "While Frodo and Sam edge closer to Mordor with the help of Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman.",
+    "duration": 179,
+    "releaseDate": "2002-12-18",
+    "posterUrl": "https://res.cloudinary.com/demo/image/upload/v1729900005/lotr2.jpg",
+    "trailerUrl": "https://www.youtube.com/watch?v=LbfMDwc4azU",
+    "status": "now_playing"
+  },
+  {
+    "movieId": "lotr_the_return_of_the_king",
+    "title": "The Lord of the Rings: The Return of the King",
+    "genre": ["Fantasy", "Adventure"],
+    "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+    "duration": 201,
+    "releaseDate": "2003-12-17",
+    "posterUrl": "https://res.cloudinary.com/demo/image/upload/v1729900006/lotr3.jpg",
+    "trailerUrl": "https://www.youtube.com/watch?v=r5X-hFf6Bwo",
+    "status": "coming_soon"
+  }
+]

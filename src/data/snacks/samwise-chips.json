@@ -1,0 +1,23 @@
+{
+  "type": "food",
+  "category": "snack",
+  "name": {
+    "ua": "Чіпси Сема",
+    "en": "Samwise Chips"
+  },
+  "description": {
+    "short": {
+      "ua": "Хрумкі картопляні чіпси.",
+      "en": "Crunchy potato chips."
+    },
+    "full": {
+      "ua": "Прості, чесні та смачні чіпси — як і сам Сем.",
+      "en": "Simple, honest and tasty chips."
+    }
+  },
+  "specs": { "weightG": 100 },
+  "price": 70,
+  "badges": ["classic", "comfort-food"],
+  "image": { "main": "snacks/samwise-chips.png" },
+  "available": true
+}

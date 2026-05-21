@@ -23,8 +23,7 @@
             </div>
             <div class="header__right">
                 <LocationSelectorComponent @update:location="selectedLocation = $event" />
-                <UserAuthComponent v-if="!user" />
-                <UserDropDownComponent v-else />
+                <UserAuthComponent />
             </div>
         </div>
     </div>
@@ -35,12 +34,7 @@ import BurgerComponent from '@/components/Header/BurgerComponent.vue'
 import NavigationMenu from '@/components/Header/NavigationMenu.vue';
 import LocationSelectorComponent from '@/components/Header/LocationSelectorComponent.vue';
 import UserAuthComponent from '@/components/Header/UserAuthComponent.vue';
-import UserDropDownComponent from '@/components/Header/UserDropDownComponent.vue'
-import { ref, computed } from 'vue'
-import { useAuthStore } from '@/stores/auth'
-
-const authStore = useAuthStore()
-const user = computed(() => authStore.getUser())
+import { ref } from 'vue'
 
 const isMenuOpen = ref(false)
 const selectedLocation = ref(null)
