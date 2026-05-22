@@ -26,6 +26,13 @@
       "Title": "Administration",
       "ImportCollection": "ImportCollection",
       "Collections": "Collections"
+    },
+    "ImportCollection": {
+      "SelectLabel": "Select Collection",
+      "PlaceholderSelect": "Collections",
+      "DocumentNameLabel": "Document's Name",
+      "PlaceholderInput": "Enter document's name",
+      "ImportButton": "Import Collection"
     }
   },
   "components": {
@@ -53,14 +60,6 @@
     },
     "CityCinemaOverlay": {
       "Cities": "Cities"
-    },
-    "AdminCollectionSelect": {
-      "Title": "Select Collection",
-      "Placeholder": "Collections"
-    },
-    "AdminImportPanel": {
-      "DocumentNameLabel": "Document's Name",
-      "Placeholder": "Enter document's name"
     }
   }
 }

@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+@mixin flex-label-input-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 @mixin responsive($breakpoint) {
   @if $breakpoint == tablet {
     @media (max-width: 768px) {
@@ -14,4 +20,13 @@
       @content;
     }
   }
+}
+
+@mixin input-admin($creamy-color, $font-main, $primary-color) {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid $creamy-color;
+  border-radius: 8px;
+  font-family: $font-main;
+  background-color: transparent;
+  color: $primary-color;
 }

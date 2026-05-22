@@ -16,22 +16,22 @@ const props = defineProps({
   
 <style  lang="scss">
 .admin__button {
-    // @include flex-center;
-    // padding: 0.75rem 1.2rem;
-    // border: none;
-    // border-radius: 8px;
-    // font-family: $font-main;
-    // background-color: $decor-color-third;
-    // color: $primary-color;
-    // cursor: pointer;
-    // font-weight: 600;
-    // box-shadow: $shadow-card;
-    // // @include transition($decor-color-third, transform);
+    @include flex-center;
+    padding: 0.75rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-family: $font-main;
+    background-color: $decor-color-third;
+    color: $primary-color;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: $shadow-card;
+    // @include transition($decor-color-third, transform);
 
-    // &:hover:not(:disabled) {
-    //     background-color: #14ff20;
-    //     transform: translateY(-1px);
-    // }
+    &:hover:not(:disabled) {
+        background-color: #14ff20;
+        transform: translateY(-1px);
+    }
 
     &:disabled {
         opacity: 0.3;

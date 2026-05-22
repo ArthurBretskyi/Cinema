@@ -38,8 +38,8 @@ const routes = [
     children: [
       {
         path: 'import',
-        name: 'AdminImport',
-        component: () => import('@/views/admin/ImportView.vue'),
+        name: 'AdminImportCollection',
+        component: () => import('@/views/admin/ImportCollectionView.vue'),
         meta: { requiresAdmin: true },
       },
       {

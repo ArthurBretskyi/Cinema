@@ -26,6 +26,13 @@
       "Title": "Адміністрація",
       "ImportCollection": "Дадати Колекцію",
       "Collections": "Колекції"
+    },
+    "ImportCollection": {
+      "SelectLabel": "Оберіть Колекцію",
+      "PlaceholderSelect": "Колекції",
+      "DocumentNameLabel": "Назва документу",
+      "PlaceholderInput": "Введіть назву документа",
+      "ImportButton": "Додати Колекцію"
     }
   },
   "components": {
@@ -53,14 +60,6 @@
     },
     "CityCinemaOverlay": {
       "Cities": "Міста"
-    },
-    "AdminCollectionSelect": {
-      "Title": "Оберіть Колекцію",
-      "Placeholder": "Колекції"
-    },
-    "AdminImportPanel": {
-      "DocumentNameLabel": "Назва документу",
-      "Placeholder": "Введіть назву документа"
     }
   }
 }
