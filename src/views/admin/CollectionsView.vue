@@ -1,6 +1,6 @@
 <template>
     <section class="collections">
-        <h2 class="admin__title">{{ $t('pages.admin.collections.title') }}</h2>
+        <!-- <h2 class="admin__title">{{ $t('pages.admin.collections.title') }}</h2> -->
 
         <div class="collections__list">
             <div v-for="(col, key) in collectionsStore.collections" :key="key" class="collections__item">
@@ -10,7 +10,9 @@
             </div>
         </div>
 
-        <AdminActionButton label="🔄 Оновити з Firestore" @click="collectionsStore.loadCollections" />
+        <div class="collections__action">
+            <AdminActionButton label="🔄 Оновити з Firestore" @click="collectionsStore.loadCollections" />
+        </div>
     </section>
 </template>
   
@@ -33,6 +35,7 @@ onMounted(() => {
 
     &__list {
         display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
     }
 
@@ -55,6 +58,15 @@ onMounted(() => {
     &__desc {
         font-size: 0.9rem;
         opacity: 0.7;
+    }
+
+    &__action {
+        margin-block-start: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        justify-content: center;
+        align-items: center;
     }
 }
 </style>

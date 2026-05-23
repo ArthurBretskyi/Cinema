@@ -1,11 +1,17 @@
 <template>
-    <div>
-
-    </div>
+    <main class="home-view">
+        <MapView />
+    </main>
 </template>
-
+    
+    
 <script setup>
-
+import MapView from '@/views/MapView.vue'
 </script>
-
-<style lang="scss" scoped></style>
+    
+    
+<style scoped>
+.home-view {
+    /* min-height: 100vh; */
+}
+</style>

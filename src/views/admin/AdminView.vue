@@ -57,13 +57,14 @@ import { RouterLink } from 'vue-router'
             }
         }
 
-
         &:hover {
             color: $creamy-color;
         }
+
+        &.router-link-exact-active {
+            color: $decor-color-third;
+        }
     }
-
-
 }
 
 .decor {

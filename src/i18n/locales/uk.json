@@ -33,6 +33,9 @@
       "DocumentNameLabel": "Назва документу",
       "PlaceholderInput": "Введіть назву документа",
       "ImportButton": "Додати Колекцію"
+    },
+    "MapView": {
+      "Title": "Знайдіть своє місце сили"
     }
   },
   "components": {

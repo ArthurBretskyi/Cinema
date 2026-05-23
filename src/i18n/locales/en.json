@@ -33,6 +33,9 @@
       "DocumentNameLabel": "Document's Name",
       "PlaceholderInput": "Enter document's name",
       "ImportButton": "Import Collection"
+    },
+    "MapView": {
+      "Title": "Find Your place of power"
     }
   },
   "components": {
