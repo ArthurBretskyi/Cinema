@@ -1,12 +1,10 @@
 <template>
     <main class="home-view">
-        <MapView />
     </main>
 </template>
     
     
 <script setup>
-import MapView from '@/views/MapView.vue'
 </script>
     
     

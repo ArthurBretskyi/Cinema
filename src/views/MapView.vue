@@ -761,7 +761,7 @@
                     </svg>
                     <div class="marks_wrapper">
                         <div v-for="city in mappedCities" :key="city.id" class="reg_mark" :data-city="city.id"
-                            @click="toggleOverlay">
+                            @click="openOverlay">
                             <span class="city-label">{{ city.name }}</span>
                             <span class="kt_span" v-if="city.count">{{ city.count }}</span>
                         </div>
@@ -813,90 +813,59 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick, computed } from 'vue'
 import { useCitiesStore } from '@/stores/cities'
-import { useRouter } from 'vue-router'
-
 import CityCinemaOverlay from '@/components/CityCinemaOverlay.vue'
 
-
 const citiesStore = useCitiesStore()
-const router = useRouter()
 const showOverlay = ref(false)
 
+// ─── Константи для центрування маркера ───────────────────────────────────────
+const MARK_WIDTH = 95
+const MARK_HEIGHT = 90
 
-// Міста у форматі { id, name, count }
-const mappedCities = computed(() => {
-    return Object.entries(citiesStore.cities).map(([name, items]) => ({
+// ─── Реактивний список міст для маркерів ─────────────────────────────────────
+const mappedCities = computed(() =>
+    Object.entries(citiesStore.cities).map(([name, items]) => ({
         name,
         id: name.toLowerCase(),
-        count: items.length
+        count: items.length,
     }))
-})
+)
 
+// ─── Позиціонування маркерів по центру SVG-регіону ───────────────────────────
+function positionMarks() {
+    const svg = document.querySelector('.map__regions svg')
+    const marks = document.querySelectorAll('.reg_mark')
 
-function toggleOverlay() {
+    if (!svg || !marks.length) return
+
+    const { width: viewW, height: viewH } = svg.viewBox.baseVal
+    const scaleX = svg.clientWidth / viewW
+    const scaleY = svg.clientHeight / viewH
+
+    marks.forEach(mark => {
+        const city = mark.dataset.city
+        const path = svg.querySelector(`path[data-city="${city}"]`)
+        if (!path) return
+
+        const { x, y, width, height } = path.getBBox()
+
+        mark.style.left = `${(x + width / 2) * scaleX - MARK_WIDTH / 2}px`
+        mark.style.top = `${(y + height / 2) * scaleY - MARK_HEIGHT / 2}px`
+    })
+}
+
+// ─── UI ──────────────────────────────────────────────────────────────────────
+function openOverlay() {
     showOverlay.value = true
 }
 
-function positionMarks() {
-    const svg = document.querySelector(".map__regions svg");
-    const marks = document.querySelectorAll(".reg_mark");
-
-    const viewBox = svg.viewBox.baseVal;
-    const scaleX = svg.clientWidth / viewBox.width;
-    const scaleY = svg.clientHeight / viewBox.height;
-
-    marks.forEach(mark => {
-        const city = mark.dataset.city;
-        const path = svg.querySelector(`path[data-city="${city}"]`);
-        if (!path) return;
-
-        const box = path.getBBox();
-
-        const centerX = box.x + box.width / 2;
-        const centerY = box.y + box.height / 2;
-
-        const finalX = centerX * scaleX - 42;
-        const finalY = centerY * scaleY - 45;
-
-        mark.style.left = `${finalX}px`;
-        mark.style.top = `${finalY}px`;
-    });
-}
-
-
+// ─── Lifecycle ───────────────────────────────────────────────────────────────
 onMounted(async () => {
-    // Завантажуємо дані з Firestore через Pinia
     await citiesStore.loadCitiesCinemas()
+    await nextTick()        // чекаємо поки v-for відрендерить маркери
     positionMarks()
-    await nextTick()
     window.addEventListener('resize', positionMarks)
-
-    // Далі — позиціонування марок
-    const svg = document.querySelector(".map__regions svg");
-    const marks = document.querySelectorAll(".reg_mark");
-
-    const viewBox = svg.viewBox.baseVal;
-    const scaleX = svg.clientWidth / viewBox.width;
-    const scaleY = svg.clientHeight / viewBox.height;
-
-    marks.forEach(mark => {
-        const city = mark.dataset.city;
-        const path = svg.querySelector(`path[data-city="${city}"]`);
-
-        if (!path) return;
-
-        const box = path.getBBox();
-
-        const centerX = box.x + box.width / 2;
-        const centerY = box.y + box.height / 2;
-
-        const finalX = centerX * scaleX - 42;
-        const finalY = centerY * scaleY - 60;
-
-        mark.style.left = `${finalX}px`;
-        mark.style.top = `${finalY}px`;
-    });
-});
+})
 
 onBeforeUnmount(() => {
     window.removeEventListener('resize', positionMarks)

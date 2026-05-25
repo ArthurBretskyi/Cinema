@@ -50,6 +50,16 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/now-in-cinemas',
+    name: 'NowInCinemas',
+    component: () => import('@/views/NowInCinemasView.vue'),
+  },
+  {
+    path: '/soon-in-cinemas',
+    name: 'SoonInCinemas',
+    component: () => import('@/views/SoonInCinemasView.vue'),
+  },
 ]
 
 const router = createRouter({
