@@ -143,7 +143,7 @@ const bgStyle = computed(() => {
     position: relative;
     z-index: 2; // поверх градієнту і фону
     width: 100%;
-    // padding: 0 0 2.5rem 0;
+    padding: 0 0 2.5rem 0;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
