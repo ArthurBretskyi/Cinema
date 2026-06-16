@@ -8,10 +8,8 @@ import { useGeneralStore } from './general'
 export const useCollectionsStore = defineStore('collections', () => {
   const { generalApiOperation } = useGeneralStore()
 
-  // 🧱 базові CRUD можливості (на випадок, якщо ми колись зробимо /collections колекцією)
   const base = getStoreTemplate('collections', generalApiOperation)
 
-  // 🧩 теперішній спосіб — документ meta/collections
   const collections = ref({})
   const isLoaded = ref(false)
 
@@ -38,7 +36,6 @@ export const useCollectionsStore = defineStore('collections', () => {
     })
   }
 
-  // 🧩 утиліта для отримання масиву (зручно для селектів)
   const getCollectionsArray = computed(() => {
     return Object.entries(collections.value).map(([value, item]) => ({
       value,

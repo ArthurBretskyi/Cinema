@@ -1,135 +1,85 @@
 <template>
-    <section class="page__cinemas" :style="heroBackgroundStyle" :aria-label="ariaLabel">
-        <div class="cinemas__container">
-            <div class="cinemas__content content">
-                <div class="content__body">
-                    <MovieInfo :movie="activeMovie" @play-trailer="openTrailer" />
-                </div>
-                <div class="content__slider">
-                    <MovieSlider :movies="movies" :active-id="activeMovie?.movieId" @select="m => activeMovie = m" />
-                </div>
-            </div>
-        </div>
+    <section class="page__cinemas" :aria-label="ariaLabel">
 
+        <!-- MovieHero отримує активний фільм і слухає події від нього -->
+        <MovieHero :movie="activeMovie" :info-open="infoOpen" @prev="prev" @next="next" @toggle-info="infoOpen = !infoOpen"
+            @play-trailer="openTrailer" />
+
+        <!-- Трейлер — відкривається поверх всього -->
         <TrailerModal v-if="showTrailer" :url="currentTrailer" @close="closeTrailer" />
+
     </section>
 </template>
+
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import getStoreTemplate from '@/stores/helpers/storeTemplate'
-import { useGeneralStore } from '@/stores/general'
+import { useMoviesStore } from '@/stores/movies'
 
-import MovieInfo from '@/components/movies/MovieInfo.vue'
-import MovieSlider from '@/components/movies/MovieSlider.vue'
+import MovieHero from '@/components/movies/MovieHero.vue'
 import TrailerModal from '@/components/movies/TrailerModal.vue'
 
+// ─── Props ───────────────────────────────────────────────────────────────────
 const props = defineProps({
-    status: { type: String, required: true },
-    ariaLabel: { type: String, default: '' }
+    status: { type: String, required: true },  // 'now_playing' або 'coming_soon'
+    ariaLabel: { type: String, default: '' },
 })
 
-const generalStore = useGeneralStore()
-const moviesStore = getStoreTemplate('movies', generalStore.generalApiOperation)
+// ─── Store ───────────────────────────────────────────────────────────────────
+const moviesStore = useMoviesStore()
 
-const movies = ref([])
-const activeMovie = ref(null)
-
+// ─── Стан ────────────────────────────────────────────────────────────────────
+const activeIndex = ref(0)   // індекс активного фільму в масиві
+const infoOpen = ref(false)  // чи розгорнутий опис фільму
 const showTrailer = ref(false)
 const currentTrailer = ref(null)
 
-const fetchMovies = async () => {
-    const result = await moviesStore.loadFilteredData(
-        'status',
-        '==',
-        props.status
-    )
+// ─── Список фільмів ──────────────────────────────────────────────────────────
+// computed — автоматично оновлюється коли змінюється store
+const movies = computed(() =>
+    [...moviesStore.getItemsList]
+        .filter(m => m.status === props.status)
+        .sort((a, b) => (b.releaseDate || '') > (a.releaseDate || '') ? 1 : -1)
+)
 
-    movies.value = (result || []).sort(
-        (a, b) => (b.releaseDate || '') > (a.releaseDate || '') ? 1 : -1
-    )
+// ─── Активний фільм ──────────────────────────────────────────────────────────
+// береться з масиву movies по індексу
+const activeMovie = computed(() => movies.value[activeIndex.value] ?? null)
 
-    if (movies.value.length) {
-        activeMovie.value = movies.value[0]
-    }
+// ─── Навігація ───────────────────────────────────────────────────────────────
+function prev() {
+    // % length — якщо на першому, переходить на останній (циклічно)
+    activeIndex.value = (activeIndex.value - 1 + movies.value.length) % movies.value.length
+    infoOpen.value = false  // скидаємо опис при переключенні
 }
 
-onMounted(fetchMovies)
+function next() {
+    activeIndex.value = (activeIndex.value + 1) % movies.value.length
+    infoOpen.value = false
+}
 
-const heroBackgroundStyle = computed(() => {
-    const img =
-        activeMovie.value?.backdropUrl ||
-        activeMovie.value?.posterUrl ||
-        ''
-
-    return img
-        ? {
-            backgroundImage: `url(${img})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-        }
-        : {}
+// ─── Завантаження даних ──────────────────────────────────────────────────────
+onMounted(async () => {
+    // Якщо дані вже є в store — не робимо зайвий запит до Firebase
+    if (moviesStore.getItemsList.length === 0) {
+        await moviesStore.loadFilteredData('status', '==', props.status)
+    }
 })
 
-const openTrailer = (url) => {
+// ─── Трейлер ─────────────────────────────────────────────────────────────────
+function openTrailer(url) {
     if (!url) return
     currentTrailer.value = url
     showTrailer.value = true
 }
 
-const closeTrailer = () => {
+function closeTrailer() {
     showTrailer.value = false
     currentTrailer.value = null
 }
 </script>
-<style scoped lang="scss">
+
+<style lang="scss" scoped>
 .page__cinemas {
-    // min-height: 100vh;
-
-    position: relative;
-    // overflow: hidden;
-    transition: background 0.6s ease-in-out;
-    padding: 20px 0;
-
-
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: 1;
-    }
-
-    .cinemas__container {
-        position: relative;
-        z-index: 2;
-    }
-}
-
-.content {
-    display: flex;
-    gap: 15px;
-    align-items: flex-start;
-}
-
-.content__body {
-    flex: 0 1 40%;
-}
-
-.content__slider {
-    flex: 0 1 60%;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* small screens */
-@media (max-width: 820px) {
-    .content {
-        flex-direction: column;
-    }
-
-    .content__slider {
-        order: -1;
-    }
+    min-height: 100vh;
 }
 </style>
